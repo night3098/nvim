@@ -20,6 +20,6 @@
 ```
 cd ~/.config
 mv nvim old_nvim
-git clone https://github.com/Night3098/nvim
+git clone https://github.com/night3098/nvim
 nvim
 ```
