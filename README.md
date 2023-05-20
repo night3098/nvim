@@ -21,4 +21,5 @@ mv nvim old_nvim
 git clone https://github.com/night3098/nvim
 nvim
 ```
-<h2><a href src="https://github.com/universal-ctags/ctags">Please, install ctags</a></h2>
+
+<a href src="https://github.com/universal-ctags/ctags">Please, install ctags</a>
