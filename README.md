@@ -22,4 +22,13 @@ git clone https://github.com/night3098/nvim
 nvim
 ```
 
-<a href src="https://github.com/universal-ctags/ctags">Please, install ctags</a>
+<h2>Please, install ctags</h2>
+
+```
+git clone https://github.com/universal-ctags/ctags.git
+cd ctags
+./autogen.sh
+./configure --prefix=/where/you/want # defaults to /usr/local
+make
+make install # may require extra privileges depending on where to install
+```
