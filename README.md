@@ -1,5 +1,5 @@
 <h1 align="center">Nvim config with lua</h1>
-
+<hr>
 <div class="bages" align="center">
   <a href="https://github.com/Night3098/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Manjaro-35BF5C?style=for-the-badge&logo=Manjaro&logoColor=white"/> </a>
   <img src="https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=vim&logoColor=white"/> </a>
