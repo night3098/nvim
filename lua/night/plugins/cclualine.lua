@@ -1,11 +1,23 @@
--- import lualine plugin safely
-local status, lualine = pcall(require, "lualine")
-if not status then
-	return
-end
+-- Eviline config for lualine
+-- Author: shadmansaleh
+-- Credit: glepnir
+local lualine = require("lualine")
 
--- get lualine nightfly theme
-local lualine_nightfly = require("lualine.themes.nightfly")
+-- Color table for highlights
+-- stylua: ignore
+local colors = {
+  bg       = '#202328',
+  fg       = '#bbc2cf',
+  yellow   = '#ECBE7B',
+  cyan     = '#008080',
+  darkblue = '#081633',
+  green    = '#98be65',
+  orange   = '#FF8800',
+  violet   = '#a9a1e1',
+  magenta  = '#c678dd',
+  blue     = '#51afef',
+  red      = '#ec5f67',
+}
 
 local conditions = {
 	buffer_not_empty = function()
@@ -20,54 +32,8 @@ local conditions = {
 		return gitdir and #gitdir > 0 and #gitdir < #filepath
 	end,
 }
--- new colors for theme
-local new_colors = {
-	black = "#000000",
-	bg = "#202328",
-	fg = "#bbc2cf",
-	yellow = "#ECBE7B",
-	cyan = "#008080",
-	darkblue = "#081633",
-	green = "#98be65",
-	orange = "#FF8800",
-	violet = "#a9a1e1",
-	magenta = "#c678dd",
-	blue = "#51afef",
-	red = "#ec5f67",
-}
-local colors = {
-	black = "#000000",
-	bg = "#202328",
-	fg = "#bbc2cf",
-	yellow = "#ECBE7B",
-	cyan = "#008080",
-	darkblue = "#081633",
-	green = "#98be65",
-	orange = "#FF8800",
-	violet = "#a9a1e1",
-	magenta = "#c678dd",
-	blue = "#51afef",
-	red = "#ec5f67",
-}
--- change nightlfy theme colors
-lualine_nightfly.normal.a.bg = new_colors.blue
-lualine_nightfly.insert.a.bg = new_colors.green
-lualine_nightfly.visual.a.bg = new_colors.violet
-lualine_nightfly.command = {
-	a = {
-		gui = "bold",
-		bg = new_colors.yellow,
-		fg = new_colors.black, -- black
-	},
-}
 
--- configure lualine with modified theme
-lualine.setup({
-	options = {
-		theme = lualine_nightfly,
-	},
-})
-
+-- Config
 local config = {
 	options = {
 		-- Disable sections and component separators
@@ -154,17 +120,8 @@ ins_left({
 	padding = { right = 1 },
 })
 
---[[
-ins_left({
-	-- filesize component
-	"filesize",
-	cond = conditions.buffer_not_empty,
-})
-]]
-
 ins_left({
 	"filename",
-	symbols = { "$" },
 	cond = conditions.buffer_not_empty,
 	color = { fg = colors.magenta, gui = "bold" },
 })
@@ -220,14 +177,14 @@ ins_right({
 	cond = conditions.hide_in_width,
 	color = { fg = colors.green, gui = "bold" },
 })
-
+--[[
 ins_right({
 	"fileformat",
 	fmt = string.upper,
 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
 	color = { fg = colors.green, gui = "bold" },
 })
-
+]]
 ins_right({
 	"branch",
 	icon = "",
